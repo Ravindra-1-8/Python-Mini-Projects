@@ -11,10 +11,10 @@
 #                     if No: End order & display cost
 #           if No: display error message.
 
-menu = {'pizza': 50, 'salad': 30, 'burger' : 100, 'pop corn': 150 }
+menu = {'pizza': 250, 'salad': 150, 'burger' : 150, 'pop corn': 100 }
 
 print("Welcome to our Lavish cafe.")
-print("'pizza': 50,\n'salad': 30,\n'burger': 100,\n'pop corn': 150.\n")
+print("'pizza': 250,\n'salad': 150,\n'burger': 150,\n'pop corn': 100.\n")
 
 order_item = input("What would you like to have Sir/Madam: ")
 
@@ -22,4 +22,16 @@ order_total  = 0
 
 if order_item in menu:
     order_total += menu[order_item]
-print(order_total)
+    order = input("Do you have anything else (Yes/No): ")
+
+    if order == 'Yes':
+        order_item2 = input("What would you like to be your second choice: ")
+
+        if order_item2 in menu:
+            order_total += menu[order_item2]
+            print(f"Your total order value is: {order_total}")
+    else:
+        print(f"Your total order value is: {order_total}")
+
+else:
+    print("Sorry, we don't have that item.")
