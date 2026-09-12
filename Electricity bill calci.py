@@ -24,4 +24,4 @@ def bill_calci(units):
 units = float(input("Enter units: "))
 total_bill = bill_calci(units)
 
-print(f"Total bill: {units} units = {total_bill}/-")
+print(f"Total bill: {units}, units = {total_bill}/-")
