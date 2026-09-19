@@ -41,11 +41,11 @@ def transactionhistory():
         print("-----------Transaction History------------")
 
         for t in transactions:
-            print("-", t)
+            print("\n-", t)
         deposits = sum(1 for t in transactions if 'Deposited' in t)
         withdraws = sum(1 for t in transactions if 'Withdrawn' in t)
         print(f"\n Total deposited: {deposits}\n")
-        print(f"\n Total withdrawn: {withdraws}\n")
+        print(f" Total withdrawn: {withdraws}\n")
 
 def menu():
     while True:
