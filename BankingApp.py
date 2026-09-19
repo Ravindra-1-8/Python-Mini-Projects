@@ -11,19 +11,45 @@
 # 7. Exit option to close the program.
 
 balance = 0.0
-
-# for storing transaction.
-transactions = []
+transactions = [] # for storing transaction
 
 def deposit(amount):
     global balance
+
     balance += amount
     transactions.append(f"Deposit {amount}/-")
     print(f"{amount} deposited successfully.")
 
+def withdraw(amount):
+    global balance
+
+    if amount > balance:
+        print("Sorry, you cannot withdraw more than you have.")
+    else:
+        balance -= amount
+        transactions.append(f"Withdrawn {amount}/-")
+        print(f"{amount} withdred successfully.\n")
+
+def checkBalance():
+    global balance
+    print(f"Current balance: {balance}\n")
+
+def transactionhistory():
+    if not transactions:
+        print("no transactions yet.\n")
+    else:
+        print("-----------Transaction History------------")
+
+        for t in transactions:
+            print("-", t)
+        deposits = sum(1 for t in transactions if 'Deposited' in t)
+        withdraws = sum(1 for t in transactions if 'Withdrawn' in t)
+        print(f"\n Total deposited: {deposits}\n")
+        print(f"\n Total withdrawn: {withdraws}\n")
+
 def menu():
     while True:
-        printt("-------------PyBank--------------")
+        print("-------------PyBank--------------")
         print("1. Deposit")
         print("2. Withdraw")
         print("3. Check Balance")
@@ -33,15 +59,24 @@ def menu():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            deposit()
+            amount = float(input("Enter your deposit amount: "))
+            deposit(amount)
+
         elif choice == "2":
-            withdraw()
+            amount = float(input("Enter your withdrawal amount: "))
+            withdraw(amount)
+
         elif choice == "3":
             checkBalance()
+
         elif choice == "4":
             transactionhistory()
+
         elif choice == "5":
             print("Thank you for your time!")
             break
+
         else:
             print("Sorry, please enter a valid choice.")
+
+menu()
