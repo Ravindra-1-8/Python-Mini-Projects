@@ -50,14 +50,14 @@ def quiz():
             print("Correct!\n")
             score += 1
         else:
-            print(f"Sorry, that's wrong, Answer: {q[answer]}\n")
+            print(f"Wrong! Correct Answer:{q[answer]}\n")
 
     # 6.Displaying total score & percentage.
     total =len(questions)
-    print(f"Quiz Completed!:{score}/{total}\n")
+    print(f"Quiz Completed!:{score}/{total}")
 
     percentage = (score/total) * 100
-    print(f"Your Percentage: {percentage}%")
+    print(f"Your Percentage: {percentage:.2f}%")
 
     if percentage >= 100:
         print("Excellent!")
@@ -66,8 +66,9 @@ def quiz():
     else:
         print("Need Practise.")
 
-    retry = input("Do you want to try again? (Y/N): ").strip().lower()
-    if retry == "y":
+    retry = input("Do you want to try again? (Y/N): ").lower()
+
+    if retry == "Y":
         quiz()
 quiz()
 
