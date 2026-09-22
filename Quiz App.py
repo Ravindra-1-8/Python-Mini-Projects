@@ -52,6 +52,7 @@ def quiz():
         else:
             print(f"Wrong! Correct Answer:{q[answer]}\n")
 
+    # 5.Score calculations.
     # 6.Displaying total score & percentage.
     total =len(questions)
     print(f"Quiz Completed!:{score}/{total}")
