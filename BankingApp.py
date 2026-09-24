@@ -42,7 +42,7 @@ def transactionhistory():
 
         for t in transactions:
             print("\n-", t)
-        deposits = sum(1 for t in transactions if 'Deposited' in t)
+        deposits = sum(1 for t in transactions if 'Deposit' in t)
         withdraws = sum(1 for t in transactions if 'Withdrawn' in t)
         print(f" Total deposits: {deposits}\n")
         print(f" Total withdrawn: {withdraws}\n")
