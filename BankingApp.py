@@ -28,7 +28,7 @@ def withdraw(amount):
     else:
         balance -= amount
         transactions.append(f"Withdrawn {amount}/-")
-        print(f"{amount} withdred successfully.\n")
+        print(f"{amount} withdrawn successfully.\n")
 
 def checkBalance():
     global balance
